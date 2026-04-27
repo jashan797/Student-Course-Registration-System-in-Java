@@ -1,0 +1,130 @@
+class InvalidInputException extends Exception {
+    public InvalidInputException(String message) {
+        super(message)
+    
+    }
+}
+
+// step 2 
+class UserInputValidator {
+
+    public static String validateName(String name) throws InvalidInputException {
+        if (name == null || name.trim().isEmpty()) {
+            throw new InvalidInputException("Name cannot be empty");
+        }
+        return name;
+    
+    }
+    
+      public static int validateAge(String ageStr) throws InvalidInputException {
+        try {
+            int age = Integer.parseInt(ageStr);
+            if (age < 0) {
+                throw new InvalidInputException("Age must be positiv");
+            }
+            return age;
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Age must be a numeric int");
+        }
+    }
+        
+         public static String validateEmail(String email) throws InvalidInputException {
+        if (email.contains("@") &&
+            (email.endsWith(".com") || email.endsWith(".edu"))) {
+            return email;
+        } else {
+            throw new InvalidInputException("Invalid email format");
+        }
+    }
+
+  public static String validatePhone(String phone) throws InvalidInputException {
+       String cleanPhone = phone.replaceAll("\\s",");
+       if(cleanPhone.length() !=10 || !cleanPhone.matches("\\d+)) {
+           throws InvalidInputException("must be exactly 10 digits");
+         
+       }
+}
+
+// last class set 
+
+import.java.util.*;
+public class UserValidatorApp{
+    public  static void main(String[] args){
+        
+        Scanner scan = new Scanner(System.in);
+        ArrayList<String> ValidUsers = new ArrayList<>();
+        boolean continueEntry= true;
+        
+        System.out.println("----User Input Validation system----);
+        
+        
+        while (continueEntry) {
+            String name = ";
+            int age = 0;
+            String email=";
+            String phone = ";
+            
+            While(true) {
+                try {
+                    System.out.println("Enter name");
+                    name = UserInputValidator.validateName(scan.nextLine());
+                    break;
+                catch(InvalidInputException e){
+                    System.out.println("error:" + e.getMessage());
+                }
+                }
+                 
+            While(true) {
+                try {
+                    System.out.println("Enter age");
+                    age = UserInputValidator.validateName(scan.nextLine());
+                    break;
+                catch(InvalidInputException e){
+                    System.out.println("error:" + e.getMessage());
+                }
+                
+                 While(true) {
+                try {
+                    System.out.println("Enter email");
+                    email = = UserInputValidator.validateName(scan.nextLine());
+                    break;
+                catch(InvalidInputException e){
+                    System.out.println("error:" + e.getMessage());
+                }
+                
+                 While(true) {
+                try {
+                    System.out.println("Enter phone");
+                    phone = UserInputValidator.validateName(scan.nextLine());
+                    break;
+                catch(InvalidInputException e){
+                    System.out.println("error:" + e.getMessage());
+            }
+        }
+         String userData + String.format("name: %s | Age: %d | Email: %s | Phone: %s, name,age,email,phone);
+         
+         validUsers.add(userData);
+         System.out.println("Success");
+         
+         System.out.println("Would you like to add another? yes/no");
+         
+         String choice = Scan.nextLine().toLowerCase();
+         
+         if(!choice.equals("yes")) {
+             continueEntry = false;
+             
+             System.out.println("Report");
+             
+            for(String user : validUsers) {
+                System.out.println(user);
+                
+        
+            }
+            scan.close();
+            System.out.println("System closed");
+    
+    
+         }
+    }
+}
+  
